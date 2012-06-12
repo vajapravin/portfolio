@@ -1,6 +1,13 @@
 Portfolio::Application.routes.draw do
-  root to: "portfolio#home"
+  devise_for :users
+
+  root to: 'portfolio#home'
   
   get "portfolio/home"
+  
+  namespace :blog do
+    resources :users
+    resources :dashboard
+  end
   
 end
